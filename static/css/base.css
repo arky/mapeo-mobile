@@ -1,0 +1,289 @@
+:root {
+  --main-bg-color: rgba(51, 102, 255);
+  --secondary-bg-color: blue;
+  --main-bg-color-alpha: rgba(57, 82, 123, 0.5);
+  --visible-z-index: 100;
+  --button-hover-color: white;
+  --button-hover-bg-color: rgb(72, 92, 114);
+  --button-active-color: rgb(72, 92, 114);
+  --button-active-bg-color: white;
+  --button-bg-color: rgb(87, 108, 144);
+  --button-color: #ececec;
+  --border: 1px solid white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font: normal 16px "-apple-system", BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Arial", sans-serif;
+  overflow: hidden;
+}
+
+.modal-padding {
+  padding: 10px;
+  background-color: --main-bg-color;
+}
+
+.modal-full-size button {
+  /* cause material-ui hates me. REFACTOR */
+  padding: 0px !important;
+  margin: 0px;
+  margin-left: 0px !important;
+  width: 100%;
+}
+
+.right {
+  text-align: right;
+}
+
+.full {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.mapeo-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: var(--main-bg-color);
+  color: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mapeo-splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: mapeo-splash-appear 2s 1s both;
+}
+
+@keyframes mapeo-splash-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  } to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.mapeo-splash-logo {
+  width: 150px;
+  height: 150px;
+}
+
+.mapeo-splash-loader {
+  position: relative;
+  top: -108px; /* magic number to place the loader inside the logo */
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-left: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: mapeo-splash-loader 1.1s infinite linear;
+}
+
+@keyframes mapeo-splash-loader {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Do not display version in iD Editor (it is now in sidebar) */
+.id-container #about-list .version {
+  display: none;
+}
+
+@media print {
+  .full {
+    position: static;
+  }
+  body {
+    overflow: visible;
+    height: auto;
+    width: auto;
+  }
+}
+
+button.big {
+  padding: 10px;
+  min-width: 300px;
+  line-height: 1.2;
+  font-size: 14px;
+  text-align: center;
+  margin: 10px 0px;
+  color: var(--button-color);
+  background-color: var(--button-bg-color);
+  border: var(--border);
+}
+
+button.big:disabled {
+  background-color: white !important;
+  color: black;
+}
+
+button.big:hover:not([disabled]) {
+  color: var(--button-hover-color);
+  background-color: var(--button-hover-bg-color);
+}
+
+#bar {
+  background-color: var(--main-bg-color);
+}
+
+#logoutLink,
+#userLink,
+.save-communityLinks,
+.feature-list-pane,
+.request-review,
+.button.social {
+  display: none !important;
+  display: none;
+}
+
+#welcome {
+  overflow: auto;
+  padding: 0px;
+}
+
+#welcome h1 {
+  line-height: 1.4;
+  font-size: 30px;
+}
+
+#welcome h2 {
+  line-height: 1.2;
+  font-size: 20px;
+}
+#welcome a {
+  color: var(--button-hover-color);
+}
+.action-buttons {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+.intro-text {
+  width: 60%;
+}
+
+#screen-2,
+#screen-3 {
+  padding-left: 100px;
+}
+#skip-intro {
+  position: absolute;
+  color: #efefef;
+  top: 30px;
+  right: 30px;
+  display: block;
+  text-transform: uppercase;
+}
+#skip-intro:hover {
+  cursor: pointer;
+}
+#welcome p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  width: 500px;
+  max-width: 100%;
+}
+
+/* roboto-300 - latin-ext_latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"), local("Roboto-Light"),
+    url("../fonts/roboto-v18-latin-ext_latin-300.woff2") format("woff2"); /* Super Modern Browsers */
+}
+/* roboto-regular - latin-ext_latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"),
+    url("../fonts/roboto-v18-latin-ext_latin-regular.woff2") format("woff2"); /* Super Modern Browsers */
+}
+/* roboto-500 - latin-ext_latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"), local("Roboto-Medium"),
+    url("../fonts/roboto-v18-latin-ext_latin-500.woff2") format("woff2"); /* Super Modern Browsers */
+}
+/* rubik-300 - latin-ext_latin */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Rubik Light"), local("Rubik-Light"),
+    url("../fonts/rubik-v9-latin-ext_latin-300.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+/* rubik-regular - latin-ext_latin */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Rubik"), local("Rubik-Regular"),
+    url("../fonts/rubik-v9-latin-ext_latin-regular.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+/* rubik-300italic - latin-ext_latin */
+@font-face {
+  font-family: "Rubik";
+  font-style: italic;
+  font-weight: 300;
+  src: local("Rubik Light Italic"), local("Rubik-LightItalic"),
+    url("../fonts/rubik-v9-latin-ext_latin-300italic.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+/* rubik-italic - latin-ext_latin */
+@font-face {
+  font-family: "Rubik";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Rubik Italic"), local("Rubik-Italic"),
+    url("../fonts/rubik-v9-latin-ext_latin-italic.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+/* rubik-500 - latin-ext_latin */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Rubik Medium"), local("Rubik-Medium"),
+    url("../fonts/rubik-v9-latin-ext_latin-500.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+/* rubik-700 - latin-ext_latin */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Rubik Bold"), local("Rubik-Bold"),
+    url("../fonts/rubik-v9-latin-ext_latin-700.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+/* rubik-700italic - latin-ext_latin */
+@font-face {
+  font-family: "Rubik";
+  font-style: italic;
+  font-weight: 700;
+  src: local("Rubik Bold Italic"), local("Rubik-BoldItalic"),
+    url("../fonts/rubik-v9-latin-ext_latin-700italic.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+/* rubik-500italic - latin-ext_latin */
+@font-face {
+  font-family: "Rubik";
+  font-style: italic;
+  font-weight: 500;
+  src: local("Rubik Medium Italic"), local("Rubik-MediumItalic"),
+    url("../fonts/rubik-v9-latin-ext_latin-500italic.woff2") format("woff2"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
